@@ -1,0 +1,22 @@
+{
+  "name": "local-memory-lite",
+  "version": "0.1.0",
+  "description": "Pure local OpenClaw memory skill backed by SQLite and simple text search",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "setup": "node src/setup.js",
+    "test": "node src/cli.js stats",
+    "install:termux": "bash ./scripts/install-termux.sh"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.10.0"
+  },
+  "openclaw": {
+    "skill": true,
+    "hooks": {
+      "request:before": "hooks/request-before.js",
+      "request:after": "hooks/request-after.js"
+    }
+  }
+}
